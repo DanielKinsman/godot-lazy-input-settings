@@ -1,0 +1,142 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://addons/godot-lazy-input-settings/input_assigner.gd" type="Script" id=1]
+
+[node name="InputAssigner" type="MarginContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+script/script = ExtResource( 1 )
+action_description = ""
+action = ""
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 8.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+alignment = 0
+
+[node name="LabelDescription" type="Label" parent="HBoxContainer"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 13.0
+margin/right = 0.0
+margin/bottom = 27.0
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="ButtonReassign" type="Button" parent="HBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 4.0
+margin/top = 0.0
+margin/right = 16.0
+margin/bottom = 40.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+flat = false
+
+[node name="WindowDialog" type="WindowDialog" parent="."]
+
+visibility/visible = false
+rect/min_size = Vector2( 200, 100 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 8.0
+margin/top = 0.0
+margin/right = 208.0
+margin/bottom = 100.0
+popup/exclusive = false
+window/title = ""
+
+[node name="ButtonClear" type="Button" parent="WindowDialog"]
+
+focus_neighbour/left = NodePath("../ButtonDefault")
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 148.0
+margin/top = 70.0
+margin/right = 191.0
+margin/bottom = 90.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "clear"
+flat = false
+
+[node name="ButtonDefault" type="Button" parent="WindowDialog"]
+
+focus_neighbour/left = NodePath("../ButtonAssign")
+focus_neighbour/right = NodePath("../ButtonClear")
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 75.0
+margin/top = 70.0
+margin/right = 131.0
+margin/bottom = 90.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "default"
+flat = false
+
+[node name="ButtonAssign" type="Button" parent="WindowDialog"]
+
+focus_neighbour/right = NodePath("../ButtonDefault")
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 11.0
+margin/top = 69.0
+margin/right = 63.0
+margin/bottom = 89.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+text = "assign"
+flat = false
+
+[node name="Label" type="Label" parent="WindowDialog"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 199.0
+margin/bottom = 66.0
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+
