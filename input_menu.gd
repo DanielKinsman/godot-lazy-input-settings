@@ -96,8 +96,8 @@ static func serialize_event(event):
 
 static func deserialize_event(event_dict):
 	var event = InputEvent()
-	event.type = event_dict["type"]
-	event.device = event_dict["device"]
+	event.type = int(event_dict["type"])
+	event.device = int(event_dict["device"])
 	
 	if event.type == InputEvent.KEY:
 		event.scancode = int(event_dict["scancode"])
@@ -105,6 +105,6 @@ static func deserialize_event(event_dict):
 		event.button_index = int(event_dict["button_index"])
 	elif event.type == InputEvent.JOYSTICK_MOTION:
 		event.axis = int(event_dict["axis"])
-		event.value = int(event_dict["value"])
+		event.value = event_dict["value"]
 	
 	return event
