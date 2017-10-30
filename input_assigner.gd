@@ -84,7 +84,8 @@ func assign_default():
 	update_input_label()
 
 func _input(event):
-	if event.type in [InputEvent.KEY, InputEvent.JOYSTICK_BUTTON, InputEvent.MOUSE_BUTTON] and event.is_pressed():
+	if (event.type in [InputEvent.KEY, InputEvent.JOYSTICK_BUTTON, InputEvent.JOYSTICK_MOTION, InputEvent.MOUSE_BUTTON]
+			and event.is_pressed()):
 		set_process_input(false)
 		get_tree().set_input_as_handled()
 		InputMap.action_add_event(action, event)
@@ -99,5 +100,7 @@ static func user_string_for_event(event):
 		return "mouse button %d" % event.button_index
 	elif event.type == InputEvent.JOYSTICK_BUTTON:
 		return "joy %s button %d" % [event.device, event.button_index]
+	elif event.type == InputEvent.JOYSTICK_MOTION:
+		return "joy %s axis %d%s" % [event.device, event.axis, "-" if event.value < 0.0 else "+"]
 	
 	return "unknown input"

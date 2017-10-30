@@ -13,6 +13,8 @@ margin/top = 0.0
 margin/right = 40.0
 margin/bottom = 40.0
 script/script = ExtResource( 1 )
+action_description = ""
+action = ""
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 
