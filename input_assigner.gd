@@ -43,11 +43,6 @@ func _ready():
 	get_node("WindowDialog/ButtonDefault").connect("pressed", self, "assign_default")
 	get_node("WindowDialog/ButtonClear").connect("pressed", self, "clear")
 	
-	#var crap = InputEvent()
-	#crap.type = InputEvent.KEY
-	#crap.scancode = KEY_Z
-	#default.append(crap)
-
 func update_input_label():
 	var input_text = ""
 	for e in InputMap.get_action_list(action):
@@ -74,6 +69,7 @@ func clear():
 		InputMap.action_erase_event(action, event)
 	
 	update_input_label()
+	emit_signal("reassigned")
 
 func assign_default():
 	clear()
@@ -82,6 +78,7 @@ func assign_default():
 		InputMap.action_add_event(action, event)
 	
 	update_input_label()
+	emit_signal("reassigned")
 
 func _input(event):
 	if (event.type in [InputEvent.KEY, InputEvent.JOYSTICK_BUTTON, InputEvent.JOYSTICK_MOTION, InputEvent.MOUSE_BUTTON]
